@@ -5,10 +5,10 @@ const User = require('./users/model.js')
 const server = express()
 server.use(express.json())
 
+
 server.get('/api/users', async(req, res) => {
     try {
         const users = await User.find()
-        res.json(users)
         if(!users) {
             res.status(404).json({message: 'The users information could not be retrieved'})
         } else {
